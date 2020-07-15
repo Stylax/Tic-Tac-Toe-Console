@@ -5,40 +5,32 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Board.printBoard(UserInput.inputIntoBoard());
+        printCurrentBoard();
     }
-}
 
-class Board {
-    public static void printBoard (char[][] boardState){
-        System.out.println("---------");
-        for (int i = 0; i < 3; i++){
-            System.out.print("| ");
-            for (int j = 0; j < 3; j++){
-                System.out.print(boardState[i][j] + " ");
-            }
-            System.out.print("|");
-            System.out.println();
-        }
-        System.out.println("---------");
-    }
-}
+    static char[][] boardState = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
 
-class UserInput {
+    public static void printCurrentBoard () {
 
-    static Scanner scanner = new Scanner(System.in);
-    static String input = scanner.nextLine();
-
-    static char[][] boardState = new char [3][3];
-
-    public static char[][] inputIntoBoard() {
-        int help = 0;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                boardState[i][j] = input.charAt(help);
-                help++;
+                if (j < 2) {
+                    System.out.print(boardState[i][j] + "|");
+                } else System.out.print(boardState[i][j]);
+            }
+            System.out.println();
+            if (i < 2) {
+                System.out.println("-+-+-");
             }
         }
-        return boardState;
     }
+
+    public static void userInput() {
+
+    }
+
 }
+
+
+
+
